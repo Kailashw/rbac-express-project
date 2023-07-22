@@ -39,14 +39,22 @@ SECRET_KEY=your-secret-key-for-jwt
 
 4. Replace your-mongodb-connection-string with the connection string for your MongoDB server, and your-secret-key-for-jwt with a secret key of your choice for JWT.
 
+5. Compile TypeScript:
+
 ```
-Compile TypeScript: npm run build
-Start the server: npm start
-The server should now be running on http://localhost:3000.
+npm run build
 ```
+
+6. Start the server:
+
+```
+npm start
+```
+
+7. The server should now be running on http://localhost:3000.
 
 ## Contributions
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-`License : ` This project is licensed under the MIT License - see the LICENSE file for details.
+<b>License :</b> This project is licensed under the MIT License - see the LICENSE file for details.

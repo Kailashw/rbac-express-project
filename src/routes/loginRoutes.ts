@@ -7,8 +7,39 @@ import { UserModel } from "../lib/models/UserModel";
 import { RoleModel } from "../lib/models/RoleModel";
 import { SECRET_KEY } from "../utilities/secrets";
 
+/**
+ * @swagger
+ * tags:
+ *   name: Authentication
+ *   description: User authentication
+ */
 const router = express.Router();
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: User login
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: OK
+ *       404:
+ *         description: Role not found
+ *       500:
+ *         description: Internal Server Error
+ */
 router.post(
   "/login",
   [
@@ -36,31 +67,28 @@ router.post(
   }
 );
 
-router.post(
-  "/roles",
-  [
-    check("name").notEmpty().withMessage("Name is required"),
-    check("permissions")
-      .isArray({ min: 1 })
-      .withMessage("At least one permission is required"),
-  ],
-  async (req: Request, res: Response) => {
-    try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
-      }
-
-      const { name, permissions } = req.body;
-      const role = new RoleModel({ name, permissions });
-      await role.save();
-      res.status(201).json({ message: "Role created successfully" });
-    } catch (err) {
-      res.status(500).json({ error: "Error creating role" });
-    }
-  }
-);
-
+/**
+ * @swagger
+ * /assign-role:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Get a role by ID
+ *     parameters:
+ *       - in: path
+ *         username: id
+ *         required: true
+ *         role: name of the role to add
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: OK
+ *       404:
+ *         description: Role not found
+ *       500:
+ *         description: Internal Server Error
+ */
+// Route for getting a role by ID
 router.post(
   "/assign-role",
   [

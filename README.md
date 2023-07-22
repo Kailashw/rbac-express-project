@@ -58,3 +58,30 @@ npm start
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
 <b>License :</b> This project is licensed under the MIT License - see the LICENSE file for details.
+
+TODO :
+
+> Authorize button in swagger ui
+
+> rewrite to use email instead of username
+
+PS: for eslint support add `.eslintex.js` file in root and copy paste below
+
+```
+module.exports = {
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  rules: {
+    // Add any additional ESLint rules you want to enforce here
+    // For example, to remove unused variables, you can add:
+    "no-unused-vars": "error",
+  },
+};
+
+```

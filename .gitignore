@@ -1,0 +1,25 @@
+# Ignore Node.js related files and directories
+node_modules/
+dist/
+
+# Ignore IDE and editor specific files
+.vscode/
+.idea/
+
+# Ignore compiled JavaScript files
+*.js
+*.js.map
+
+# Ignore compiled TypeScript declaration files
+*.d.ts
+
+# Ignore environment variables file (if you're using .env)
+.env
+
+# Ignore any other sensitive or temporary files
+*.log
+*.tmp
+.DS_Store
+
+# Add more entries if needed
+package-lock.json

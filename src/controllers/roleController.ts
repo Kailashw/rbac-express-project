@@ -16,7 +16,7 @@ export const createRole = async (req: Request, res: Response) => {
 
     // You may want to add more validations or checks here, e.g., checking if the role already exists
 
-    const role: IRole = new RoleModel({ name, permissions });
+    const role = new RoleModel({ name, permissions });
     await role.save();
     res.status(201).json({ message: "Role created successfully" });
   } catch (err) {

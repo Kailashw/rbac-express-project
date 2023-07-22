@@ -4,7 +4,6 @@ import { validationResult, check } from "express-validator";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { UserModel } from "../lib/models/UserModel";
-import { RoleModel } from "../lib/models/RoleModel";
 import { SECRET_KEY } from "../utilities/secrets";
 
 /**

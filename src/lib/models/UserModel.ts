@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema, Model } from "mongoose";
 import { IUser } from "../interfaces/User";
 
 export const UserModel: Model<IUser> = mongoose.model<IUser>(

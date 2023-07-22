@@ -7,13 +7,22 @@ let __connectionEstablished = false;
 
 import * as qs from "querystring";
 
+interface DatabaseConfig {
+  user?: string;
+  host: string;
+  port?: string;
+  schema: string;
+  password?: string;
+  options?: Record<string, string>;
+}
+
 const MongoUtils = {
   /**
    * Creates connection uri for mongo
    * @param dbConfiguration
    * @return {string}
    */
-  buildMongoUri(dbConfiguration: any) {
+  buildMongoUri(dbConfiguration: DatabaseConfig) {
     const { user, host, schema, password } = dbConfiguration;
     const port = dbConfiguration.port || 27017;
 
@@ -58,9 +67,12 @@ export const MongoConnector = {
     __connectionEstablished = true;
 
     // Connect with the database here
-    const dbConfiguration = DB_CONFIG;
+    const dbConfigurations: DatabaseConfig = {
+      host: DB_CONFIG.host,
+      schema: DB_CONFIG.schema,
+    };
 
-    const mongoUri = MongoUtils.buildMongoUri(dbConfiguration);
+    const mongoUri = MongoUtils.buildMongoUri(dbConfigurations);
 
     const timeout = 30 * 1000;
     // recommended options from https://gist.github.com/mongolab-org/9959376

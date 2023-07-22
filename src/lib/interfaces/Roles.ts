@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import Document from "mongoose";
 
 export interface IRole extends Document {
   name: string;

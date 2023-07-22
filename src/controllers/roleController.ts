@@ -2,7 +2,6 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import { RoleModel } from "../lib/models/RoleModel";
-import { IRole } from "../lib/interfaces/Roles";
 
 // Create a new role
 export const createRole = async (req: Request, res: Response) => {
